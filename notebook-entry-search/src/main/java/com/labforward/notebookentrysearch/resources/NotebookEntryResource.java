@@ -57,7 +57,23 @@ public class NotebookEntryResource {
 		
 		List<String> similarWords = notebookEntryService.findSimilarWordsInNotebookEntry(notebookEntryId, searchWord);
 		
-		if(similarWords.isEmpty()) {
+		if(similarWords == null) {
+			
+			return new ResponseEntity<>("Notebook entry (Id: " + notebookEntryId + ") does not exist", HttpStatus.NOT_FOUND);
+		}
+		
+		return new ResponseEntity<>(similarWords, HttpStatus.OK);
+		
+	}
+	
+	// Get similar words of a specific word in a notebook entry using Levenshtein Logic
+	@RequestMapping(method = RequestMethod.GET, value = "/searchWordSimilarityUsingLevenshteinLogic")
+	@ApiOperation(value = "find similar words to a specific word in a notebook entry using Levenshtein Logic ", notes = "it returns list of words similiar to a word in a researcher notebook")
+	public ResponseEntity<?> findSimilarWordsInNotebookEntryUsingLevenshteinLogic(@RequestParam("notebookEntryId") Long notebookEntryId, @RequestParam("searchWord") String searchWord) {
+		
+		List<String> similarWords = notebookEntryService.findSimilarWordsInNotebookEntry_UsingLevenshtienLogic(notebookEntryId, searchWord);
+		
+		if(similarWords == null) {
 			
 			return new ResponseEntity<>("Notebook entry (Id: " + notebookEntryId + ") does not exist", HttpStatus.NOT_FOUND);
 		}

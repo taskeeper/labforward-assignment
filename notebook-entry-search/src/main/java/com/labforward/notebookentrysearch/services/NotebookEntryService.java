@@ -18,6 +18,7 @@ import com.labforward.notebookentrysearch.models.Notebook;
 import com.labforward.notebookentrysearch.models.NotebookEntry;
 import com.labforward.notebookentrysearch.repositories.NotebookEntryRepository;
 import com.labforward.notebookentrysearch.repositories.NotebookRepository;
+import com.labforward.notebookentrysearch.utils.AppUtils;
 
 @Service
 @Transactional
@@ -110,7 +111,7 @@ public class NotebookEntryService {
 			
 			logger.error("findSimilarWordsInNotebookEntry(" + notebookEntryId + ", " + searchWord + ") failed");
 			
-			return new ArrayList<>();
+			return null;
 			
 		}
 			
@@ -129,6 +130,38 @@ public class NotebookEntryService {
 		
 		
 		logger.info("findSimilarWordsInNotebookEntry(" + notebookEntryId + ", " + searchWord + ") executed");
+		
+		return simialrWords;
+		
+	}
+	
+	// find similar entries of a word in notebook entry using Levenshtien Logic
+	public List<String> findSimilarWordsInNotebookEntry_UsingLevenshtienLogic(Long notebookEntryId, String searchWord) {
+		
+		List<String> simialrWords = new ArrayList<>();
+		
+		Optional<NotebookEntry> entry = getNotebookEntry(notebookEntryId);
+		
+		// check if entry exists
+		if(!entry.isPresent()) {
+			
+			logger.error("Notebook entry (Id: " + notebookEntryId + ") does not exist");
+			
+			logger.error("findSimilarWordsInNotebookEntry_UsingLevenshtienLogic(" + notebookEntryId + ", " + searchWord + ") failed");
+			
+			return null;
+			
+		}
+			
+		String[] noteBookSimilarEntries = entry.get().getNoteText().split(" ");
+		
+		// find similar words to search word
+		simialrWords = Arrays.asList(noteBookSimilarEntries).parallelStream()
+						   .filter(s -> AppUtils.calculate(s, searchWord) <= 1 && !s.equals(searchWord))
+						   .collect(Collectors.toList());
+		
+		
+		logger.info("findSimilarWordsInNotebookEntry_UsingLevenshtienLogic(" + notebookEntryId + ", " + searchWord + ") executed");
 		
 		return simialrWords;
 		
