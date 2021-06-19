@@ -34,5 +34,6 @@ public class AppUtils {
         		.min()
         		.orElse(Integer.MAX_VALUE);
     }
+    
 
 }

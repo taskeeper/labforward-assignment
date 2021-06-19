@@ -63,7 +63,6 @@ public class NotebookEntryResource {
 		}
 		
 		return new ResponseEntity<>(similarWords, HttpStatus.OK);
-		
 	}
 	
 	// Get similar words of a specific word in a notebook entry using Levenshtein Logic
@@ -79,7 +78,6 @@ public class NotebookEntryResource {
 		}
 		
 		return new ResponseEntity<>(similarWords, HttpStatus.OK);
-		
 	}
 	
 	// Add new Entry in Notebook

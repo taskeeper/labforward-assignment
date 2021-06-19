@@ -54,6 +54,7 @@ public class NotebookEntryService {
 		logger.info("getNotebookEntries(" + notebookId + ") executed");
 		
 		return new ResponseEntity<>(notebookEntryRepository.findByNotebookId(notebookId), HttpStatus.OK);
+		
 	}
 	
 	// get one notebook entry by notebook entry id
