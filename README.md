@@ -36,8 +36,10 @@ If I have more time I would have added:
     Also I would like to mention that I could have used elastic search for faster retrieval (e.g. fuzzy search algorithm to find similar words).
     I suggest to tag any notebook entry with repeated words and show top 3 tags beside the note on front end. This way the researcher can quickly identify the notebook entry he or she would like to view and relevant to the subject he or she is examining.
     tags shall be used to group multiple similar notebook entries. This will help researchers to link between entries, research steps and results.
-    each time a notebook entry is added or updated or deleted, a background process (not interactive) should run to re-evaluate notbook entry tags.
+    each time a notebook entry is added or updated or deleted, a background process (not interactive) should run to re-evaluate notebook entry tags.
 
 UI/UX: I will either send a link for an interactive PoC or a real Angular app during this week.
+
+Note 19 Jun 2021: I have added a new function in Notebook entry service thus resource using levenshtien method.
 
 All My Respect to you and Thanks for your cooperation.
