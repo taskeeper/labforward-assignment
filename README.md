@@ -44,7 +44,7 @@ Note 19 Jun 2021: I have added a new function in Notebook entry service thus res
 
 Extra: To access UI please go to https://www.figma.com/proto/Ab7xwMwWZgyjDiUszwzxl7/java-frameworks-cude?node-id=1060%3A75&scaling=min-zoom&page-id=31%3A27
 
-To test the UI flow please do the follwoing:
+To test the UI flow (Interactive Prototype using Figma) please do the following:
 
     1. click COVID-19 entry 3
     2. place the mouse on search box
