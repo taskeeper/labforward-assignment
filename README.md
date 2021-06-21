@@ -42,6 +42,6 @@ UI/UX: I will either send a link for an interactive PoC or a real Angular app du
 
 Note 19 Jun 2021: I have added a new function in Notebook entry service thus resource using levenshtien method.
 
-Extra: To access UI please go to https://www.figma.com/file/Ab7xwMwWZgyjDiUszwzxl7/java-frameworks-cude?node-id=31%3A27
+Extra: To access UI please go to https://www.figma.com/proto/Ab7xwMwWZgyjDiUszwzxl7/java-frameworks-cude?node-id=1060%3A75&scaling=min-zoom&page-id=31%3A27
 
 All My Respect to you and Thanks for your cooperation.
